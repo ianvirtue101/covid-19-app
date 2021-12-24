@@ -2,7 +2,7 @@ import "./App.scss";
 import { Component } from "react";
 import Cards from "./Components/Cards/Cards";
 import CountryPicker from "./Components/CountryPicker/CountryPicker";
-import Chart from "./Components/Chart/Chart";
+import CovidChart from "./Components/Chart/Chart";
 import { fetchData } from "./api";
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
       <div className="container">
         <Cards data={data}t/>
         <CountryPicker />
-        <Chart />
+        <CovidChart />
       </div>
     );
   }

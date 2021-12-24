@@ -1,40 +1,49 @@
-import './Chart.scss'
-
+import "./Chart.scss";
 import { useState, useEffect } from "react";
 import { fetchDailyData } from "../../api";
-import {Line, Bar} from 'react-chartjs-2'
+import { Line, Bar } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
+import { Chart } from "react-chartjs-2";
 
-function Chart() {
-  const [dailyData, setDailyData] = useState({});
+function CovidChart() {
+  const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setdailyData(await fetchDailyData());
+      setDailyData(await fetchDailyData());
     };
-
-    fetchAPI()
+    console.log(dailyData);
+    fetchAPI();
   });
 
-const lineChart = (
-<Line data={{
-  
-  labels: "",
-  datasets: [{}, {}]
-
-
-
-}}/>
-
-
-);
-
-
+  const lineChart = dailyData.length ? (
+    <Line
+      data={{
+        labels: dailyData.map(({ date }) => date),
+        datasets: [
+          {
+            data: dailyData.map(({ confirmed }) => confirmed),
+            label: "Infected",
+            borderColor: "#3333ff",
+            fill: true,
+          },
+          {
+            data: dailyData.map(({ deaths }) => deaths),
+            label: "Deaths",
+            borderColor: "red",
+            backgroundColor: "rgba(255, 0, 0, 0, 0.5)",
+            fill: true,
+          },
+        ],
+      }}
+    />
+  ) : null;
 
   return (
     <>
-      <h1>Chart</h1>
+      <div className="container">{lineChart}</div>
     </>
   );
 }
 
-export default Chart;
+export default CovidChart;
