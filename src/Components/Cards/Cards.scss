@@ -5,24 +5,37 @@
 
 .container {
   display: flex;
-  margin: 2rem 0;
+  margin: 2rem;
 
   &__card {
     margin: 0 2% !important;
 
+    @media (max-width: 768px) {
+      margin: 2rem 0 !important;
+    }
+
     &--infected {
       margin: 0 2% !important;
       border-bottom: 10px solid rgba(0, 0, 225, 0.5);
+      @media (max-width: 768px) {
+        margin: 0.5rem 0 !important;
+      }
     }
 
     &--recovered {
       margin: 0 2% !important;
       border-bottom: 10px solid rgba(0, 225, 0, 0.5);
+      @media (max-width: 768px) {
+        margin: 0.5rem 0 !important;
+      }
     }
 
     &--deaths {
       margin: 0 2% !important;
       border-bottom: 10px solid rgba(225, 0, 0, 0.5);
+      @media (max-width: 768px) {
+        margin: 0.5rem 0 !important;
+      }
     }
   }
 }

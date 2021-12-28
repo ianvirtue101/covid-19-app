@@ -1,11 +1,28 @@
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #e1e1e1;
+  background-color: #efefef;
 }
 
 .container {
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 5rem;
 
+  @media (max-width: 768px) {
+    margin: 0 10%;
+  }
+
+  &__logo {
+    width: 30rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
 }

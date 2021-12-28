@@ -3,7 +3,9 @@ import { Component } from "react";
 import Cards from "./Components/Cards/Cards";
 import CountryPicker from "./Components/CountryPicker/CountryPicker";
 import CovidChart from "./Components/Chart/Chart";
+import Map from "./Components/Map/Map";
 import { fetchData, fetchDailyData } from "./api";
+import covidLogo from "./assets/images/AdobeStock_331001452-01.svg";
 
 class App extends Component {
   state = {
@@ -18,19 +20,21 @@ class App extends Component {
   handleCountryChange = async (country) => {
     //fetch the data
     const fetchedData = await fetchData(country);
-
-    this.setState({ data: fetchedData, country: country });
-
     //set the state
+    this.setState({ data: fetchedData, country: country });
   };
   render() {
     const { data, country } = this.state;
     return (
-      <div className="container">
-        <Cards data={data} t />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <CovidChart data={data} country={country} />
-      </div>
+      <>
+        <div className="container">
+          <img className="container__logo" src={covidLogo} alt="COVID-19" />
+          <Cards data={data} t />
+          <CountryPicker handleCountryChange={this.handleCountryChange} />
+          <CovidChart data={data} country={country} />
+          <Map />
+        </div>
+      </>
     );
   }
 }
