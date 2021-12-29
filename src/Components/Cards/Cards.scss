@@ -1,0 +1,53 @@
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  margin: 2rem;
+
+  &__card {
+    margin: 0 2% !important;
+    @media (max-width: 768px) {
+      margin: 2rem 0 !important;
+    }
+
+    &--text {
+      color: white;
+    }
+
+    &--infected {
+      margin: 0 2% !important;
+      @media (max-width: 768px) {
+        margin: 0.5rem 0 !important;
+      }
+    }
+
+    &--infected-card {
+      background: rgba(0, 0, 220, 0.7);
+    }
+
+    &--deaths {
+      margin: 0 2% !important;
+      @media (max-width: 768px) {
+        margin: 0.5rem 0 !important;
+      }
+    }
+
+    &--deaths-card {
+      background: rgba(220, 0, 0, 0.7);
+    }
+
+    &--rate {
+      margin: 0 2% !important;
+      @media (max-width: 768px) {
+        margin: 0.5rem 0 !important;
+      }
+    }
+
+    &--rate-card {
+      background: rgba(100, 0, 220, 0.7);
+    }
+  }
+}
